@@ -2,25 +2,66 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --primary: #0068c8;
+  --sale: #dd2831;
+  --highlight: #fcc904;
+  --muted: #848484;
+  --border: #ebebeb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-mulish);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-mulish), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
