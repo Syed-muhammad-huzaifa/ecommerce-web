@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, ShoppingCart, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
+import { ProductActions } from "@/app/components/product-actions";
 import type { Product } from "@/app/data/home-content";
 import { cn } from "@/app/lib/cn";
 
@@ -80,13 +81,8 @@ export function ProductCard({ product, compact = false, bordered = false }: Prod
           )}
         </div>
       </div>
-      <div className="absolute right-3 top-3 hidden gap-2 opacity-0 transition group-hover:flex group-hover:opacity-100">
-        <button aria-label="Add to wishlist" className="grid size-8 place-items-center rounded-full bg-white shadow">
-          <Heart size={15} />
-        </button>
-        <button aria-label="Add to cart" className="grid size-8 place-items-center rounded-full bg-[#0068c8] text-white shadow">
-          <ShoppingCart size={15} />
-        </button>
+      <div className="absolute right-3 top-3 flex gap-2 opacity-100 transition sm:pointer-events-none sm:opacity-0 sm:group-hover:pointer-events-auto sm:group-hover:opacity-100">
+        <ProductActions product={product} />
       </div>
     </article>
   );

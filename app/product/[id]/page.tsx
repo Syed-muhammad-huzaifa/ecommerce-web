@@ -1,10 +1,10 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { Heart, ShieldCheck, ShoppingCart, Star, Truck } from "lucide-react";
+import { ShieldCheck, Star, Truck } from "lucide-react";
 
-import { ButtonLink } from "@/app/components/button-link";
 import { PageShell } from "@/app/components/page-shell";
+import { ProductPurchaseActions } from "@/app/components/product-purchase-actions";
 import { ProductListing } from "@/app/components/product-listing";
 import { products } from "@/app/data/home-content";
 
@@ -42,16 +42,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
             <p className="mt-5 max-w-xl text-sm font-semibold leading-7 text-[#606060]">
               Premium electronics with fast delivery, secure checkout, warranty support, and the same deal-focused presentation as the reference store.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/cart" className="h-12 px-8">
-                <ShoppingCart size={16} />
-                Add To Cart
-              </ButtonLink>
-              <ButtonLink href="/wishlist" className="h-12 bg-black px-8 hover:text-black hover:ring-black">
-                <Heart size={16} />
-                Wishlist
-              </ButtonLink>
-            </div>
+            <ProductPurchaseActions product={product} />
             <div className="mt-8 grid gap-4 border-t border-[#ebebeb] pt-6 sm:grid-cols-2">
               <Feature icon={<Truck size={24} />} title="Fast Delivery" text="Free shipping on eligible orders." />
               <Feature icon={<ShieldCheck size={24} />} title="Secure Payment" text="Protected checkout experience." />
